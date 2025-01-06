@@ -3,9 +3,10 @@ DEBUG	= -g
 OPT	= -O3
 CFLAGS	= $(DEBUG) $(OPT)
 OBJECTS = data.o main.o io.o
+LIBS += -lm
 
 project1: $(OBJECTS)
-	cc -o $@ $(OBJECTS) 
+	$(CC) $(CFLAGS) -o $@ $(OBJECTS) $(LIBS)
 
 data.o: data.c data.h
 main.o: data.h io.h main.c
