@@ -52,3 +52,7 @@ Mkfile.old
 dkms.conf
 
 .idea/
+
+week1/dgemv_dgem/addition
+week1/dgemv_dgem/product_vector
+week1/dgemv_dgem/multiplication
