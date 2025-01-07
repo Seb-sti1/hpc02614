@@ -58,3 +58,6 @@ week1/dgemv_dgem/product_vector
 week1/dgemv_dgem/multiplication
 
 week1/**/*.gcc
+week1/**/*.dat
+
+**/.venv
