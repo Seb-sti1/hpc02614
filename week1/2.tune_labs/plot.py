@@ -28,8 +28,9 @@ for i in range(1, 5):
         plt.axvline(x=416, color='b', label='L1d')
         plt.axvline(x=9.5 * 1024, color='b', label='L2')
         plt.axvline(x=24 * 1024, color='b', label='L3')
+    plt.xlabel('memory footprint in kB')
+    plt.ylabel(title[i])
     plt.xscale('log')
     plt.legend()
-    plt.title(title[i])
 
 plt.show()
