@@ -60,4 +60,6 @@ week1/dgemv_dgem/multiplication
 week1/**/*.gcc
 week1/**/*.dat
 
+week2/**/*.gcc
+
 **/.venv
