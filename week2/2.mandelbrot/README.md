@@ -32,6 +32,14 @@ It scales very poorly
 
 ## What do you have to change to make the code scale?
 
+### schedule(guided, 100)
 
+| nb thread | time  |
+|-----------|-------|
+| 1         | 7.744 |
+| 2         | 6.383 |
+| 4         | 6.306 |
+| 8         | 4.831 |
+| 16        | 4.044 |
 
-
+### schedule(dynamic)
