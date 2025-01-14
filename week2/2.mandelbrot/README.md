@@ -18,3 +18,20 @@ _Note: Dumping the image to the disk takes a fixed time, independent of the numb
 call to the image writer in the code, to avoid
 this._
 
+| nb thread | time  |
+|-----------|-------|
+| 1         | 7.76  |
+| 2         | 6.38  |
+| 4         | 6.325 |
+| 8         | 4.81  |
+| 16        | 4.113 |
+
+## Does your code scale? How can you check this?
+
+It scales very poorly
+
+## What do you have to change to make the code scale?
+
+
+
+
