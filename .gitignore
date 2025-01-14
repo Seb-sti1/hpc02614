@@ -61,5 +61,8 @@ week1/**/*.gcc
 week1/**/*.dat
 
 week2/**/*.gcc
+week2/**/*.png
 
 **/.venv
+
+
