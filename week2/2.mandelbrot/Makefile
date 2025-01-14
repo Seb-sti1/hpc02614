@@ -3,7 +3,7 @@ OBJS	= main.o mandel.o writepng.o
 
 OPT	= -g -O3
 ISA	= 
-PARA	= 
+PARA	=  -fopenmp
 
 PNGWRITERPATH = pngwriter
 ARCH	      = $(shell uname -p)
@@ -20,7 +20,7 @@ CXXFLAGS= -I $(PNGWRTIPATH)
 CFLAGS	= $(OPT) $(ISA) $(PARA) $(XOPT)
 
 F90C  	= gfortran
-LIBS	= -L $(PNGWRTLPATH) -lpngwriter -lpng 
+LIBS	= -L $(PNGWRTLPATH) -lpngwriter -lpng
 
 
 all: $(PNGWRITERLIB) $(TARGET)

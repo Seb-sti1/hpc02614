@@ -5,8 +5,7 @@
 
 
 
-int
-main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
 
     int   width, height;
     int	  max_iter;

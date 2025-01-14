@@ -1,3 +1,6 @@
+#include <omp.h>
+#include <stdio.h>
+
 void mandel(int disp_width, int disp_height, int *array, int max_iter) {
   double scale_real, scale_imag;
   double x, y, u, v, u2, v2;
@@ -6,6 +9,9 @@ void mandel(int disp_width, int disp_height, int *array, int max_iter) {
   scale_real = 3.5 / (double) disp_width;
   scale_imag = 3.5 / (double) disp_height;
 
+  // array can be shared as long as each cell is access by only one thread
+#pragma omp parallel for default(none) private(i, j, iter, x, y, u, v, u2, v2) \
+shared(scale_real, scale_imag, disp_width, disp_height, array, max_iter)
   for (i = 0; i < disp_width; i++) {
     x = ((double) i * scale_real) - 2.25;
     for (j = 0; j < disp_height; j++) {
