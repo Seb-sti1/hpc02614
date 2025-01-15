@@ -63,6 +63,9 @@ week1/**/*.dat
 week2/**/*.gcc
 week2/**/*.png
 
+**.er/
+gprofng-gui-1.1/
+
 **/.venv
 
 
