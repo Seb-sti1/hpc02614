@@ -22,10 +22,7 @@ int main(int argc, char *argv[]) {
     return (1);
   }
 
-#pragma omp parallel
-  {
-    mandel(width, height, image, max_iter);
-  }
+  mandel(width, height, image, max_iter);
 
   writepng("mandelbrot.png", image, width, height);
 
