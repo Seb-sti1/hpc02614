@@ -6,7 +6,7 @@ void mandel(int disp_width, int disp_height, int *array, int max_iter) {
   double scale_imag = 3.5 / (double) disp_height;
 
   // array can be shared as long as each cell is access by only one thread
-#pragma omp target teams loop map(to:disp_width, disp_height, scale_real, scale_imag, max_iter) map(tofrom:array[0:disp_height * disp_width])
+#pragma omp target teams distribute parallel for map(to:disp_width, disp_height, scale_real, scale_imag, max_iter) map(tofrom:array[0:disp_height * disp_width])
   for (int i = 0; i < disp_width * disp_height; i++) {
     double x = ((double) (i / disp_height) * scale_real) - 2.25;
     double y = ((double) (i % disp_height) * scale_imag) - 1.75;
