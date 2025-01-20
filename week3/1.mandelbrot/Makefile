@@ -1,5 +1,5 @@
 TARGET	= mandelbrot
-OBJS	= main.o mandel.o mandel_offload.o writepng.o 
+OBJS	= main.o mandel.o writepng.o
 
 OPT	= -g -fast -Msafeptr -Minfo -acc -mp=gpu -gpu=cc90 -gpu=lineinfo
 ISA	= 
@@ -42,7 +42,6 @@ realclean: clean
 
 # dependencies
 #
-main.o  : main.cpp mandel.h mandel_offload.h
-mandel.o: mandel.cpp
-mandel_offload.o: mandel_offload.cpp
+main.o  : main.c mandel.h
+mandel.o: mandel.c
 writepng.o: writepng.h writepng.cc
