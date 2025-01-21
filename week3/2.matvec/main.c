@@ -59,7 +59,8 @@ int main() {
 
   printf("\n%d\n", n);
   double t1 = omp_get_wtime();
-#pragma omp target teams distribute parallel for map(to:n, m[0:n/2*n], v[0:n]) map(tofrom:c[0:n/2]) device(0)
+#pragma omp target teams num_teams(N/2) thread_limit(1) distribute parallel for \
+map(to:n, m[0:n/2*n], v[0:n]) map(tofrom:c[0:n/2]) device(0)
   for (int i = 0; i < n / 2; i++) {
     double sum = 0;
     for (int j = 0; j < n; j++) {
@@ -68,7 +69,8 @@ int main() {
     c[i] = sum;
   }
 
-#pragma omp target teams distribute parallel for map(to:n, m[n/2*n:n/2*n], v[0:n]) map(tofrom:c[n/2:n/2]) device(1)
+#pragma omp target teams num_teams(N/2) thread_limit(1) distribute parallel for \
+map(to:n, m[n/2*n:n/2*n], v[0:n]) map(tofrom:c[n/2:n/2]) device(1)
   for (int i = n / 2; i < n; i++) {
     double sum = 0;
     for (int j = 0; j < n; j++) {
@@ -76,6 +78,8 @@ int main() {
     }
     c[i] = sum;
   }
+
+#pragma omp taskwait
 
   double t2 = omp_get_wtime();
 
