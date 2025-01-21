@@ -59,8 +59,7 @@ int main() {
 
   printf("\n%d\n", n);
   double t1 = omp_get_wtime();
-#pragma omp parallel for default(none) \
-  shared(n, v, m, c)
+#pragma omp target teams distribute parallel for map(to:n, m[0:n*n], v[0:n]) map(tofrom:c[0:n])
   for (int i = 0; i < n; i++) {
     double sum = 0;
     for (int j = 0; j < n; j++) {
