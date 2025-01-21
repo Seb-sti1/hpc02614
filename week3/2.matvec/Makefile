@@ -1,5 +1,5 @@
 TARGET	= matvec
-OBJS	= main.o matvec.o matvec_offload.o alloc2d.o 
+OBJS	= main.o
 
 OPT	= -g -fast -Msafeptr -Minfo -acc -mp=gpu -gpu=cc90 -gpu=lineinfo -cuda
 ISA	= 
@@ -28,8 +28,4 @@ realclean: clean
 	@rm -f $(TARGET)
 
 # dependencies
-#
-main.o  : main.cpp matvec.h matvec_offload.h
-matvec.o: matvec.h matvec.cpp
-matvec_offload.o: matvec_offload.h matvec_offload.cpp
-alloc2d.o: alloc2d.h alloc2d.cpp
+main.o  : main.c
