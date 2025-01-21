@@ -2,7 +2,7 @@ TARGET	= matvec
 OBJS	= main.o
 
 OPT	= -g -fast -Msafeptr -Minfo -acc -mp=gpu -gpu=cc90 -gpu=lineinfo -cuda
-ISA	= -DSIZE=1000000
+ISA	= -DSIZE=30000
 PARA	= -fopenmp
 CC	= nvc
 
