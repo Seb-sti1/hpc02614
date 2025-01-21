@@ -58,6 +58,8 @@ int main() {
 #endif
 
   printf("\n%d\n", n);
+  printf("Number of available devices: %d\n", omp_get_num_devices());
+
   double t1 = omp_get_wtime();
 #pragma omp target teams num_teams(n/2) thread_limit(1) distribute parallel for \
 map(to:n, m[0:n/2*n], v[0:n]) map(tofrom:c[0:n/2]) device(0)
